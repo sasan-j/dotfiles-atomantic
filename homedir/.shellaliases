@@ -95,3 +95,10 @@ alias vtop="vtop --theme wizard"
 
 # swagger api designer docker
 docker run -d -p 80:8080 swaggerapi/swagger-editor
+
+#alias jsonfix="pbpaste | jq . | pbcopy"
+#alias lookbusy="cat /dev/urandom | hexdump -C
+#alias td="todo.sh"
+#alias tda="todo.sh add"
+#alias tdl="todo.sh list"
+#alias tdd="todo.sh do"

@@ -47,9 +47,6 @@ plugins=(colorize compleat dirpersist autojump git history cp virtualenv virtual
 
 source $ZSH/oh-my-zsh.sh
 
-
-#export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 #autoload -U add-zsh-hook

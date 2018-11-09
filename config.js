@@ -3,15 +3,14 @@ module.exports = {
     // http://conqueringthecommandline.com/book/ack_ag
     'ack',
     'ag',
-    // cmake is required to compile vim bundle YouCompleteMe
-    'cmake',
-    // Install GNU core utilities (those that come with OS X are outdated)
+    // Install GNU core utilities (those that come with macOS are outdated)
     // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
     'coreutils',
     'dos2unix',
     // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     'findutils',
     'fortune',
+    'readline', // ensure gawk gets good readline
     'gawk',
     // http://www.lcdf.org/gifsicle/ (because I'm a gif junky)
     'gifsicle',
@@ -37,6 +36,7 @@ module.exports = {
     // better/more recent version of screen
     'homebrew/dupes/screen',
     'tmux',
+    //'todo-txt',
     'tree',
     'ttyrec',
     // better, more recent vim
@@ -52,19 +52,30 @@ module.exports = {
     //'box-sync',
     //'comicbooklover',
     //'diffmerge',
-    'dropbox',
     'skype',
     'spark',
     //'rstudio',
-    'microsoft-r-open',
+    //'microsoft-r-open',
     //'evernote',
     'google-chrome',
     'spotify',
-    'gpgtools',
+    //'gpgtools',
+    //'ireadfast',
+    'iterm2',
+    //'box-sync',
+    //'comicbooklover',
+    //'diffmerge',
+    'docker', // docker for mac
+    'dropbox',
+    //'evernote',
+    //'flux',
+    //'gpg-suite',
     //'ireadfast',
     'iterm2',
     //'little-snitch',
-    //'micro-snitch',
+    //'macbreakz',
+    'micro-snitch',
+    //'signal',
     //'macvim',
     //'sizeup',
     //'sketchup',
@@ -73,17 +84,17 @@ module.exports = {
     //'torbrowser',
     'transmission',
     'vlc',
+    'visual-studio-code',
     'xquartz'
   ],
   gem: [
-    'git-up'
   ],
   npm: [
     //'antic',
     //'buzzphrase',
     //'eslint',
     //'instant-markdown-d',
-    'npm-check',
+    //'npm-check',
     //'yo',
     //'generator-dockerize',
     //'gulp',
