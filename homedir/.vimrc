@@ -46,15 +46,19 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'godlygeek/tabular'
 " language tools
 Plugin 'scrooloose/syntastic'
-Plugin 'millermedeiros/vim-esformatter'
-Plugin 'digitaltoad/vim-pug'
+"Plugin 'millermedeiros/vim-esformatter'
+"Plugin 'digitaltoad/vim-pug'
 " Plugin 'elzr/vim-json'
 " Plugin 'SirVer/ultisnips'
 "Plugin 'sheerun/vim-polyglot'
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'node.js'
+"Plugin 'node.js'
 Plugin 'SuperTab'
-" Git plugin not hosted on GitHub
+" Python "
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8'
+
+"Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
@@ -120,7 +124,7 @@ set lz " do not redraw while running macros (much faster) (LazyRedraw)
 set hid " you can change buffer without saving
 set backspace=2 " make backspace work normal
 set whichwrap+=<,>,h,l  " backspace and cursor keys wrap to
-set mouse=a " use mouse everywhere
+"set mouse=a " use mouse everywhere
 set shortmess=atI " shortens messages to avoid 'press a key' prompt
 set report=0 " tell us when anything is changed via :...
 set noerrorbells " don't make noise
@@ -277,7 +281,8 @@ let NERDTreeIgnore=['\.DS_Store$']
 " Syntastic
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
@@ -292,3 +297,26 @@ let g:syntastic_javascript_checkers = ['eslint']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:sneak#streak = 1
 let g:airline_theme='bubblegum'
+
+""""""""""""""""""""""""""""""""""""
+" Python Stuff
+" """"""""""""""""""""""""""""""""""
+au BufNewFile,BufRead *.py
+     \ set tabstop=4 |
+     \ set softtabstop=4 |
+     \ set shiftwidth=4 |
+     \ set textwidth=79 |
+     \ set expandtab |
+     \ set autoindent |
+     \ set fileformat=unix
+
+let python_highlight_all=1
+
+""""""""""""""""""""""""""""
+" move between splits
+" """"""""""""""""""""""""""
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>

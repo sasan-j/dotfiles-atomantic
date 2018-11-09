@@ -465,8 +465,8 @@ sudo chflags uchg /Private/var/vm/sleepimage;ok
 ################################################
 bot "Standard System Changes"
 ################################################
-running "always boot in verbose mode (not MacOS GUI mode)"
-sudo nvram boot-args="-v";ok
+#running "always boot in verbose mode (not MacOS GUI mode)"
+#sudo nvram boot-args="-v";ok
 
 running "allow 'locate' command"
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist > /dev/null 2>&1;ok
@@ -477,8 +477,8 @@ sudo pmset -a standbydelay 86400;ok
 running "Disable the sound effects on boot"
 sudo nvram SystemAudioVolume=" ";ok
 
-running "Menu bar: disable transparency"
-defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false;ok
+#running "Menu bar: disable transparency"
+#defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false;ok
 
 running "Menu bar: hide the Time Machine, Volume, User, and Bluetooth icons"
 for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
@@ -494,8 +494,8 @@ defaults write com.apple.systemuiserver menuExtras -array \
   "/System/Library/CoreServices/Menu Extras/Clock.menu"
 ok
 
-running "Set highlight color to green"
-defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600";ok
+#running "Set highlight color to green"
+#defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600";ok
 
 running "Set sidebar icon size to medium"
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2;ok
@@ -552,8 +552,8 @@ sudo systemsetup -setcomputersleep Off > /dev/null;ok
 running "Check for software updates daily, not just once per week"
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1;ok
 
-running "Disable Notification Center and remove the menu bar icon"
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist > /dev/null 2>&1;ok
+#running "Disable Notification Center and remove the menu bar icon"
+#launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist > /dev/null 2>&1;ok
 
 running "Disable smart quotes as they’re annoying when typing code"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false;ok
@@ -577,11 +577,11 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightC
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true;ok
 
-running "Disable 'natural' (Lion-style) scrolling"
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
+#running "Disable 'natural' (Lion-style) scrolling"
+#defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
 
-running "Increase sound quality for Bluetooth headphones/headsets"
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40;ok
+#running "Increase sound quality for Bluetooth headphones/headsets"
+#defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40;ok
 
 running "Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3;ok
@@ -592,12 +592,12 @@ defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144;o
 running "Follow the keyboard focus while zoomed in"
 defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true;ok
 
-running "Disable press-and-hold for keys in favor of key repeat"
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false;ok
+#running "Disable press-and-hold for keys in favor of key repeat"
+#defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false;ok
 
 running "Set a blazingly fast keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10;ok
+defaults write NSGlobalDomain KeyRepeat -float 1.98
+defaults write NSGlobalDomain InitialKeyRepeat -int 20;ok
 
 running "Set language and text formats (english/US)"
 defaults write NSGlobalDomain AppleLanguages -array "en"
@@ -857,8 +857,8 @@ defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -stri
 running "Disable inline attachments (just show the icons)"
 defaults write com.apple.mail DisableInlineAttachmentViewing -bool true;ok
 
-running "Disable automatic spell checking"
-defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled";ok
+#running "Disable automatic spell checking"
+#defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled";ok
 
 ###############################################################################
 bot "Spotlight"
@@ -914,7 +914,7 @@ bot "Terminal & iTerm2"
 
 #running "Enable “focus follows mouse” for Terminal.app and all X11 apps"
 # i.e. hover over a window and start `typing in it without clicking first
-defaults write com.apple.terminal FocusFollowsMouse -bool true
+#defaults write com.apple.terminal FocusFollowsMouse -bool true
 #defaults write org.x.X11 wm_ffm -bool true;ok
 running "Installing the Solarized Light theme for iTerm (opening file)"
 open "./configs/Solarized Light.itermcolors";ok
@@ -1019,13 +1019,13 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 bot "SizeUp.app"
 ###############################################################################
 
-running "Start SizeUp at login"
-defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
+#running "Start SizeUp at login"
+#defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true;ok
 
-running "Don’t show the preferences window on next start"
-defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
+#running "Don’t show the preferences window on next start"
+#defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 
-killall cfprefsd
+#killall cfprefsd
 
 ###############################################################################
 # Kill affected applications                                                  #

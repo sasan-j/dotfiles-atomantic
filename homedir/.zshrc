@@ -1,13 +1,24 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
+
 # if you want to use this, change your non-ascii font to Droid Sans Mono for Awesome
-# POWERLEVEL9K_MODE='awesome-patched'
-export ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+POWERLEVEL9K_MODE='nerdfont-complete'
+#POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
+#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=5
+
+POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S \uF017 %d.%m.%y}'
+POWERLEVEL9K_TIME_ICON='\uF073'
 # https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
 # https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir nvm vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context os_icon ssh virtualenv anaconda pyenv dir dir_writable nvm vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs load time)
 # colorcode test
 # for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
 POWERLEVEL9K_NVM_FOREGROUND='000'
@@ -27,29 +38,46 @@ export CASE_SENSITIVE="true"
 # disable autosetting terminal title.
 export DISABLE_AUTO_TITLE="true"
 
+
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colorize compleat dirpersist autojump git gulp history cp)
+plugins=(colorize compleat dirpersist autojump git history cp virtualenv virtualenvwrapper osx)
 
 source $ZSH/oh-my-zsh.sh
 
+
+#export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-source /usr/local/opt/nvm/nvm.sh
-
-autoload -U add-zsh-hook
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use &> /dev/null
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    nvm use default &> /dev/null
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+#autoload -U add-zsh-hook
+#load-nvmrc() {
+#  if [[ -f .nvmrc && -r .nvmrc ]]; then
+#    nvm use &> /dev/null
+#  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+#    nvm use default &> /dev/null
+#  fi
+#}
+#add-zsh-hook chpwd load-nvmrc
+#load-nvmrc
 
 # Customize to your needs...
 unsetopt correct
 
 # run fortune on new terminal :)
-fortune
+fortune | cowsay
+
+source /usr/local/bin/virtualenvwrapper.sh
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+
+# for autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+#export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+#export LDFLAGS="-L/usr/local/opt/openssl/lib"
+#export CPPFLAGS="-I/usr/local/opt/openssl/include"
+
+#export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
