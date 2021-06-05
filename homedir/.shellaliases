@@ -94,11 +94,17 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup
 alias vtop="vtop --theme wizard"
 
 # swagger api designer docker
-docker run -d -p 80:8080 swaggerapi/swagger-editor
+alias swagger-editor="docker run -d -p 80:8080 --name swagger-editor swaggerapi/swagger-editor"
 
-#alias jsonfix="pbpaste | jq . | pbcopy"
-#alias lookbusy="cat /dev/urandom | hexdump -C
-#alias td="todo.sh"
-#alias tda="todo.sh add"
-#alias tdl="todo.sh list"
-#alias tdd="todo.sh do"
+alias jsonfix="pbpaste | jq . | pbcopy"
+
+alias lookbusy="cat /dev/urandom | hexdump -C | grep \"34 32\""
+alias td="todo.sh"
+alias tda="todo.sh add"
+alias tdl="todo.sh list"
+alias tdd="todo.sh do"
+
+alias k='kubectl'
+alias kp='kubectl get pods -o wide'
+alias kdp='kubectl describe pod'
+alias kdn='kubectl describe node'
