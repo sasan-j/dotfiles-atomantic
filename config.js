@@ -43,6 +43,7 @@ module.exports = {
     'moreutils',
     'nmap',
     // 'openconnect',
+    'romkatv/powerlevel10k/powerlevel10k',
     'reattach-to-user-namespace',
     // better/more recent version of screen
     'homebrew/dupes/screen',
