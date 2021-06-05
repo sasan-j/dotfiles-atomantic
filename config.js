@@ -1,5 +1,6 @@
 module.exports = {
   brew: [
+    'axel',
     // http://conqueringthecommandline.com/book/ack_ag
     'ack',
     'ag',
@@ -7,13 +8,14 @@ module.exports = {
     'autojump',
     // alternative to `cat`: https://github.com/sharkdp/bat
     'bat',
+    'caffeine',
     // Install GNU core utilities (those that come with macOS are outdated)
     // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
     'coreutils',
     'dos2unix',
     // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     'findutils',
-    // 'fortune',
+    'fortune',
     'fzf',
     'readline', // ensure gawk gets good readline
     'gawk',
@@ -23,6 +25,7 @@ module.exports = {
     // Install GNU `sed`, overwriting the built-in `sed`
     // so we can do "sed -i 's/foo/bar/' file" instead of "sed -i '' 's/foo/bar/' file"
     'gnu-sed --with-default-names',
+    'go',
     // upgrade grep so we can get things like inverted match (-v)
     'grep --with-default-names',
     // better, more recent grep
@@ -57,10 +60,12 @@ module.exports = {
     //'amazon-cloud-drive',
     //'atom',
     //'box-sync',
+    'brave-browser',
     //'comicbooklover',
     //'diffmerge',
+    'dbeaver-community',
     'skype',
-    'spark',
+    // 'spark',
     //'rstudio',
     //'microsoft-r-open',
     //'evernote',
@@ -82,6 +87,8 @@ module.exports = {
     'little-snitch',
     // 'macbreakz',
     'micro-snitch',
+    'miniconda',
+    'postman',
     // 'signal',
     //'macvim',
     //'sizeup',
@@ -92,7 +99,8 @@ module.exports = {
     'transmission',
     'vlc',
     'visual-studio-code',
-    'xquartz'
+    'xquartz',
+    'zotero'
   ],
   gem: [
   ],
